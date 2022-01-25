@@ -1,0 +1,16 @@
+az login 
+
+Cretae AKS in azure
+
+Now in powershell:
+	az aks Get-Credentials --resource-group UST-Akhil-RG --name UST-Akhil-AKS
+	
+	download kubectl
+
+	navigate to download folder in powershell where kubectl is downloaded and run : .\kubectl.exe get nodes
+
+	create a yaml file for front end and backend 
+
+	.\kubectl.exe apply -f aks.yaml
+
+	.\kubectl.exe get pods
