@@ -5,7 +5,7 @@ This mainly focus on learning through 3 different exam stages:
   2. Azure AZ-204: Azure Developer Associate Course
   3. Azure AZ-400: Designing and Implementing Microsoft DevOps Solutions
  
-The necessary learning materials for the above mentioned courses and practical sections added with demo steps are added to this Repo.
+The necessary learning materials for the above mentioned courses and practical sections  with demo steps are added to this Repo.
 
 This Project also focus on learning the below concepts:
   1. SonarQube
