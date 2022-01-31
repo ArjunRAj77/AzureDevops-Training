@@ -1,9 +1,9 @@
 # AzureDevops-Training
 This GitRepo consists of various studay materials and references needed to become a successfull Azure Devops Engineer.
 This mainly focus on learning through 3 different exam stages:
-  1.Azure DP-900: Azure Fundamentals Course
-  2.Azure AZ-204: Azure Developer Associate Course
-  3.Azure AZ-400: Designing and Implementing Microsoft DevOps Solutions
+  1. Azure DP-900: Azure Fundamentals Course
+  2. Azure AZ-204: Azure Developer Associate Course
+  3. Azure AZ-400: Designing and Implementing Microsoft DevOps Solutions
  
 The necessary learning materials for the above mentioned courses and practical sections added with demo steps are added to this Repo.
 
