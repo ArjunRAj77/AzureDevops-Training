@@ -23,7 +23,18 @@
    ![html](https://user-images.githubusercontent.com/23217592/152671056-eec6fd73-baaf-47dd-bd8d-512904910f0d.jpg)
    5.  Create a another VM using steps 1 to 3.
    6. In the wwwroot folder create a 'prd' folder and create a new index.html page with content: "Prod Server"
-   7. 
-        
+   7. Create a new Application Gateway using the following steps :
+   ![AG1](https://user-images.githubusercontent.com/23217592/152694184-7a5b55a8-e5ba-4cae-a68a-4d4a6abdcd10.jpg)
+   8. Add a new publi ip in the front end section
+   ![frontend](https://user-images.githubusercontent.com/23217592/152694247-34927496-b83a-4d01-8e0e-0445566ac5ed.jpg)
+   9. Add both VM in seperate backendpools
+   10. Add a routing rule
+   ![rule](https://user-images.githubusercontent.com/23217592/152694304-7d7d3595-5ce9-4f2c-8985-716180b408c6.jpg)
+   11. Add path to existing backendpool for easier access
+   ![path](https://user-images.githubusercontent.com/23217592/152694329-cc09174e-5a59-4635-acbb-bd32b4bab76e.jpg)
+   12. The Application Gateway is created. For navigation use the ip address and the path.
+
+
+
         
         
