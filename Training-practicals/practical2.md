@@ -6,9 +6,9 @@
    2. Attach standard Load Balancer
 
    # Steps
-   1. Create 2 linux VMs in same VNet and install apache services in two VMs (See Practical 1.)
+   1. Create 2 linux VMs in same VNet and install apache services in two VMs (apt-get install apache2;<h-1>Processing VM1</h-1>)
    2. Add inboundport rule to open port 80
-   3. Check both VM apacheserver is up and running.
+   3. Check both VM apache server is up and running.
    4. Create a Loadbalancer 
    ![4](https://user-images.githubusercontent.com/70442264/152671639-24976645-9fea-45c0-9b64-d575074546e1.png) 
    5. In Frontend IP configuration,Add frontend IP configuration     
