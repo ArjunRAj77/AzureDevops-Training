@@ -25,7 +25,7 @@
    6. In the wwwroot folder create a 'prd' folder and create a new index.html page with content: "Prod Server"
    7. Create a new Application Gateway using the following steps :
    ![AG1](https://user-images.githubusercontent.com/23217592/152694184-7a5b55a8-e5ba-4cae-a68a-4d4a6abdcd10.jpg)
-   8. Add a new publi ip in the front end section
+   8. Add a new public ip in the front end section
    ![frontend](https://user-images.githubusercontent.com/23217592/152694247-34927496-b83a-4d01-8e0e-0445566ac5ed.jpg)
    9. Add both VM in seperate backendpools
    10. Add a routing rule
@@ -33,6 +33,7 @@
    11. Add path to existing backendpool for easier access
    ![path](https://user-images.githubusercontent.com/23217592/152694329-cc09174e-5a59-4635-acbb-bd32b4bab76e.jpg)
    12. The Application Gateway is created. For navigation use the ip address and the path.
+   13. A Helath probe can be created in order to monitor the succesfull activity of both the VM.
 
 
 
