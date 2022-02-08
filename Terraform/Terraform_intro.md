@@ -87,7 +87,7 @@
 
         }
      ```
-   3. create a file variables.tf and copy the followig code:
+   3. Create a file variables.tf and copy the followig code:
       ```
       variable "stgname" {
 
@@ -167,4 +167,10 @@
 
       subaddress_prefix=["10.7.2.0/24"]
       ```  
-   6. 
+   6. Perform the following commands in the terminal window:
+      ```
+      terraform.exe init
+      terraform.exe plan --var-file=config.tfvars
+      terraform.exe apply --var-file=config.tfvars
+      ```
+   7. The Resource Group,Virtual Network and Subnet is now created in Azure.
