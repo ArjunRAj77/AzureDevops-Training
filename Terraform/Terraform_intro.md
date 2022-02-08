@@ -49,5 +49,122 @@
         ```
       The Resource group is created in Azure.
   # Creating Subnet in Azure using Terraform commands
+  For best practises, important information regarding the azure credentials should be stored in a seperate .config file. Unlike the first practise, here more modular approach is used.
+  1. First create a folder for storing terraform files
+  2. Create a main.tf with the following code:
+      ```
+      resource "azurerm_resource_group" "example" {
+
+         name     = var.stgname
+
+        location = var.stglocation  
+
+        }
+
+      resource "azurerm_virtual_network" "example" {
+
+      name                = var.vnetname
+
+      address_space       = var.vnetaddress_prefix
+
+       location            = azurerm_resource_group.example.location
+
+        resource_group_name = azurerm_resource_group.example.name
+
+        }
+
+
+
+        resource "azurerm_subnet" "example" {
+
+       name                 = var.subnetname
+
+        resource_group_name  = azurerm_resource_group.example.name
+
+       virtual_network_name = azurerm_virtual_network.example.name
+
+       address_prefixes     = var.subaddress_prefix
+
+        }
+     ```
+   3. create a file variables.tf and copy the followig code:
+      ```
+      variable "stgname" {
+
+      type = string
+
+       description = "Storage Name" //optional part
+
+
+
+        }
+
+      variable "stglocation" {
+
+      type = string
+
+      description = "Contains Location of Storage resoures" //optional part
+
   
- 
+
+      }
+
+      variable "subaddress_prefix" {
+
+      type = list
+
+      }
+
+       variable "vnetname" {
+
+      }
+
+
+
+      variable "subnetname" {
+
+   
+
+      }
+
+      variable "vnetaddress_prefix" {
+
+      type= list
+
+   
+
+      }
+      ```
+   4. Create a file provider.tf and add the important credentials in it
+      ```
+      provider "azurerm" {
+
+      version="~>2.10.0"
+
+      tenant_id ="<add id here>"
+
+      client_id = "<add id here>"
+
+      subscription_id ="<add id here>"
+
+      client_secret ="<add id here>"
+
+      features{ }
+
+        }
+      ```
+   5. Create a file named config.tvars and add the required naming for the Resource Group,Vnet and Subnet in Azure.
+      ```
+      stgname = "sample_resourcegroup_name"
+
+      stglocation="centralus"
+
+      vnetname="sample_vnet_name"
+
+      vnetaddress_prefix=["10.7.0.0/16"]
+
+      subnetname="sample_subnet_name"
+
+      subaddress_prefix=["10.7.2.0/24"]
+      ```  
+   6. 
