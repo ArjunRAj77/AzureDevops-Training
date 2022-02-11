@@ -1,0 +1,1 @@
+New-AzResourceGroupDeployment -ResourceGroupName akhilstg -TemplateFile filename.json
