@@ -8,6 +8,7 @@ The various ARM templates that are being used are the following:
 5. V-net with Network Interface
 6. VM Windows
 7. VM-Windows with password passed as parameter through KeyVault
+8. App Service
 
 # 1. Storage Account ARM Template
  1. The template.json file is:
@@ -613,8 +614,58 @@ The various ARM templates that are being used are the following:
  Add name of secret which created in key vault in parameter.json file
  Add this parameter in {parameter} in the main json template file and update password for vm with [parameters('vmpass')].
  
- ```
+
  3. The Code for running it in Azure CLI is:
       ```
       New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json -TemplateParameterFile .\filename.parameters.json
- 
+      ```
+      
+ # 8. App Service
+   1. The template.json file is:
+   ```
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "demoplanakhil",
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2020-12-01",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "F1",
+                "capacity": 1
+            },
+        
+            "properties": {
+                "name": "demoplanakhil"
+            }
+        },
+        {
+            "name": "demowebappakhil",
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2020-12-01",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/appServicePlan1')]": "Resource",
+                "displayName": "demowebappakhil"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', 'demoplanakhil')]"
+            ],
+            "properties": {
+                "name": "demowebappakhil",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'demoplanakhil')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+      ```
+  2. The Code for running it in Azure CLI is:
+      ```
+      New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json
+      ```
