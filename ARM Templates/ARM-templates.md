@@ -233,16 +233,16 @@ The various ARM templates that are being used are the following:
       ```
       New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json
       ```
- # 6. VM-Windows
+ # 6. VM-Windows using ARM Template
    1. The template.json file is:
-   ```
-   {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "functions": [],
-    "variables": {},
-    "resources": [
+      ```
+       {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "functions": [],
+      "variables": {},
+       "resources": [
         {
             "name": "[toLower('storageaccustakhil2')]",
             "type": "Microsoft.Storage/storageAccounts",
@@ -403,29 +403,29 @@ The various ARM templates that are being used are the following:
                 }
             }
         }
-    ],
-    "outputs": {}
-}
-```
-     2. The Code for running it in Azure CLI is:
+         ],
+       "outputs": {}
+         }
+        ```
+   2. The Code for running it in Azure CLI is:
       ```
       New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json
       ```
       
  # 7. VM-Windows with password passed as parameter through KeyVault
    1. The template.json file is:
-   ```
-   {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
+      ```
+      {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
         "vmpass":{
             "type": "securestring"
         }
-    },
-    "functions": [],
-    "variables": {},
-    "resources": [
+      },
+      "functions": [],
+      "variables": {},
+      "resources": [
         {
             "name": "[toLower('storageaccustakhil2')]",
             "type": "Microsoft.Storage/storageAccounts",
@@ -586,13 +586,13 @@ The various ARM templates that are being used are the following:
                 }
             }
         }
-    ],
-    "outputs": {}
-}
-```
+        ],
+       "outputs": {}
+        }
+       ```
 2. The parameters.json file is
-```
-{
+   ```
+    {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
@@ -606,30 +606,29 @@ The various ARM templates that are being used are the following:
             } 
         }
     }
-}
-```
-# Steps
- Create a Key Vault and Add a secret with upload option manual, name and value as vm password
- Go to properties and copy resource id and paste in the id in parameter file
- Add name of secret which created in key vault in parameter.json file
- Add this parameter in {parameter} in the main json template file and update password for vm with [parameters('vmpass')].
+     }
+   ```
+ 3. Create a Key Vault and Add a secret with upload option manual, name and value as vm password
+ 4. Go to properties and copy resource id and paste in the id in parameter file
+ 5. Add name of secret which created in key vault in parameter.json file
+ 6. Add this parameter in {parameter} in the main json template file and update password for vm with [parameters('vmpass')].
  
 
- 3. The Code for running it in Azure CLI is:
+ 7. The Code for running it in Azure CLI is:
       ```
       New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json -TemplateParameterFile .\filename.parameters.json
       ```
       
  # 8. App Service
    1. The template.json file is:
-   ```
-   {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "functions": [],
-    "variables": {},
-    "resources": [
+      ```
+      {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "functions": [],
+      "variables": {},
+      "resources": [
         {
             "name": "demoplanakhil",
             "type": "Microsoft.Web/serverfarms",
@@ -661,11 +660,11 @@ The various ARM templates that are being used are the following:
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'demoplanakhil')]"
             }
         }
-    ],
-    "outputs": {}
-}
-```
+       ],
+       "outputs": {}
+        }
+      ```
   2. The Code for running it in Azure CLI is:
- ```
- New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json
- ```
+     ```
+     New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json
+     ```
