@@ -664,8 +664,8 @@ The various ARM templates that are being used are the following:
     ],
     "outputs": {}
 }
-      ```
+```
   2. The Code for running it in Azure CLI is:
-      ```
-      New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json
-      ```
+ ```
+ New-AzResourceGroupDeployment -ResourceGroupName armrg -TemplateFile template.json
+ ```
