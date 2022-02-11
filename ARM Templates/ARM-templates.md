@@ -6,6 +6,8 @@ The various ARM templates that are being used are the following:
 3. Network Interface
 4. Public IP
 5. V-net with Network Interface
+6. VM Windows
+7. VM-Windows with password passed as parameter through KeyVault
 
 # 1. Storage Account ARM Template
  1. The template.json file is:
