@@ -1,8 +1,8 @@
-# Practicals : 1
+# Practicals : 2
 
    # Objective
 
-   1. Create Private DNS server to communicate with internal Virtual network
+   1. Create Log analytics workspace and integreate with your local VM and azure VM
 
 
    # Steps
