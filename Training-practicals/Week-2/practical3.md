@@ -16,16 +16,15 @@
    
    1. Go to Azure Active Directory
    2. Go to users and add 4 users.
-   3. Create 2 resource group as 1: dev and 2: prod
-   4. Go to dev resource group and go to Access Control(IAM)
-   5. Add role assignment and select members as user1 and user2
-   6. Go to prod resource group and go to Access Control(IAM)
-   7. Addrole assignment and select members as user3 and user4.
+   3. Create dev group and add two users.(user1 and user2)
+   4. Create prod group and add two users.(user2 and user4)
+   5. Add contributor role for user 1 and user 3 and they can access all the resources
+   
    <br>
    Test:
    
-   1. login with user1 or user2 and check whether he can access anyother resource other than prod.
-   2. login with user3 or user4 and check whether he can access anyother resource other than prod.
+   1. login with user1 and user3 and check whether he can access every resource.
+   2. login with user2 and user4 and check whether he can access any resource.
    
         
   
