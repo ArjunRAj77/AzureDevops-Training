@@ -21,7 +21,8 @@
       az group create --name "UST-Akhil-CLI" --location "WestUS" 
       ```
    4. It will create a resource group
-  
+  ![fsaf](https://user-images.githubusercontent.com/23217592/153886811-18ad51ea-ed87-48a3-b055-c43f80bc81a1.jpg)
+
 
         
         
