@@ -6,17 +6,21 @@
 
 
    # Steps
-        Two way: 
-        1
-            Go to cloudshell open as powershell and run 
-            ```az group create --name "UST-Akhil-CLI" --location "WestUS" 4th qn ans```
-        2.
-            Install azure cli in local system.
-            open powershell and check it is successfully installed by using command az version
-            az login
-            az group create --name "UST-Akhil-CLI" --location "WestUS" 4th qn ans
-            
-         It will create a resource group
+   This can be done in two ways: 
+   # First method:
+   1. Go to cloudshell open as powershell and run 
+       ```
+       az group create --name "UST-Akhil-CLI" --location "WestUS" 
+       ```
+   2. It will create a resource group
+   # Second Method:
+   1. Install azure cli in local system.
+   2. Open powershell and check it is successfully installed by using command az version
+   3. ```
+      az login
+      az group create --name "UST-Akhil-CLI" --location "WestUS" 
+      ```
+   4. It will create a resource group
   
 
         
