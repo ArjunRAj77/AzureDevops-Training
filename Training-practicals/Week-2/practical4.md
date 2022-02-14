@@ -16,7 +16,7 @@
             az login
             az group create --name "UST-Akhil-CLI" --location "WestUS" 4th qn ans
             
-         It will create resource group
+         It will create a resource group
   
 
         
