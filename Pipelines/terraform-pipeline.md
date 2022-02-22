@@ -1,6 +1,8 @@
 # Pipelines using Terraforms
+  1. Pipeline for Creating an web app using Terraform
+  2. Pipeline for creating a Resource Group Using Terraform
 
-  # 1 . Pipeline for Creating an web app using Terraform
+# 1 . Pipeline for Creating an web app using Terraform
 
 
   1. Upload terraform files in the Azure Git Repo <br>![tf1](https://user-images.githubusercontent.com/23217592/154906132-b29d294a-72b0-489c-9dc4-16e7765bd12d.jpg)
@@ -22,7 +24,29 @@
   ![tf10](https://user-images.githubusercontent.com/23217592/154908874-b6e006ff-0af0-403d-b4ca-6f86b4c78d04.jpg)
   13. The pipeline is successfully completed. ```CD is not activated in this pipeline. ``` <br> ![tf11](https://user-images.githubusercontent.com/23217592/154909093-e2dbd2cd-b5a5-4415-833c-556e8f3cfc72.jpg)
 
+# 2 . Pipeline for creating a Resource Group Using Terraform
 
+   1. Go to pipelines in Azure Devops Project
+   2. Click on new pipeline
+   3. Click on use the classic editor
+      ![1](https://user-images.githubusercontent.com/70442264/154905709-4f40aa45-551b-4a52-a0cc-c2d4b0236822.png)
+   4. Give the repo details and click continue
+   5. Select template as empty job.
+   6. Give a name and select your self hosted agent pool
+      ![2](https://user-images.githubusercontent.com/70442264/154906095-da6b0bc4-d65c-4b96-bac9-e105bfd5055e.png)
+   7. Click on add a task to agent job1
+   8. Search for terraform and select install terraform
+   9. Then search for terraform and select terraform
+      ![3](https://user-images.githubusercontent.com/70442264/154906441-f814d530-b883-4677-ac13-8b7c9c01a3f8.png)
+   10. Select first terraform and add configure subscription.
+   11. Create a storage account in the resource group in azure portal and provide details there.
+   12. In the key section provide tf/terraform.tfstate as key
+      ![4](https://user-images.githubusercontent.com/70442264/154906728-01f8650a-3056-4249-82bd-672e9a11e241.png)
+   13. Select folder which contain the code for terraform.
+   14. Follow same steps for validate, plan and Apply
+   15. Then click save and queue. Then run.
+      ![5](https://user-images.githubusercontent.com/70442264/154907149-0b684c54-6251-45c3-9a9f-27aa92402265.png)
+   16. It will create a new resource group.
 
 
 
