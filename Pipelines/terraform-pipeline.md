@@ -20,7 +20,7 @@
 
   8. In Terraform validate task : change command to ```validate``` .<br> ![tf7](https://user-images.githubusercontent.com/23217592/154908093-785f9dc2-9f4b-46c7-b54d-61bd7c6151f0.jpg)
   9. In Terrform plan task: change Command to ``` Plan``` and add additional command argument : ``` --var-file=config.tfvars ```. <br> ![tf8](https://user-images.githubusercontent.com/23217592/154908385-b9e03090-c771-417d-af89-fee216e1e9ce.jpg)
-  10. In Terraform validate and apply task : change Command to ``` validate and apply ``` add additional command argument : ``` --var-file=config.tfvars ```. <br>![tf9](https://user-images.githubusercontent.com/23217592/154908593-26157af1-a431-41cb-a463-3f7720056e4d.jpg)
+  10. In Terraform validate and apply task : change Command to ``` validate and apply ``` .<br>Add additional command argument : ``` --var-file=config.tfvars ```. <br>![tf9](https://user-images.githubusercontent.com/23217592/154908593-26157af1-a431-41cb-a463-3f7720056e4d.jpg)
   11. Select ``` save and queue```. Your pipeline is up and running.!<br>
   ![tf10](https://user-images.githubusercontent.com/23217592/154908874-b6e006ff-0af0-403d-b4ca-6f86b4c78d04.jpg)
   13. The pipeline is successfully completed. ```CD is not activated in this pipeline. ``` <br> ![tf11](https://user-images.githubusercontent.com/23217592/154909093-e2dbd2cd-b5a5-4415-833c-556e8f3cfc72.jpg)
@@ -66,7 +66,7 @@
 
   8. In Terraform validate task : change command to ```validate``` .<br> ![tf7](https://user-images.githubusercontent.com/23217592/154908093-785f9dc2-9f4b-46c7-b54d-61bd7c6151f0.jpg)
   9. In Terrform plan task: change Command to ``` Plan``` and add additional command argument : ``` --var-file=config.tfvars ```. <br> ![tf8](https://user-images.githubusercontent.com/23217592/154908385-b9e03090-c771-417d-af89-fee216e1e9ce.jpg)
-  10. In Terraform validate and apply task : change Command to ``` validate and apply ``` add additional command argument : ``` --var-file=config.tfvars ```. <br>![tf9](https://user-images.githubusercontent.com/23217592/154908593-26157af1-a431-41cb-a463-3f7720056e4d.jpg)
+  10. In Terraform validate and apply task : change Command to ``` validate and apply ``` .<br>Add additional command argument : ``` --var-file=config.tfvars ```. <br>![tf9](https://user-images.githubusercontent.com/23217592/154908593-26157af1-a431-41cb-a463-3f7720056e4d.jpg)
   11. Select ``` save and queue```. Your pipeline is up and running.!<br>
   ![tf10](https://user-images.githubusercontent.com/23217592/154908874-b6e006ff-0af0-403d-b4ca-6f86b4c78d04.jpg)
   13. The pipeline is successfully completed. ```CD is not activated in this pipeline. ``` <br> ![tf11](https://user-images.githubusercontent.com/23217592/154909093-e2dbd2cd-b5a5-4415-833c-556e8f3cfc72.jpg)
