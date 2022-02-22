@@ -19,7 +19,10 @@
       4. apply :  &emsp;  Create or update infrastructure
       5. destroy : &emsp;  Destroy previously-created infrastructure
   <br>Terraform contains the extension .tf
-  
+  # Lab sections for Terraform
+   1. Creating a resource group in Azure Using Terraform
+   2. Creating Subnet in Azure using Terraform commands
+   
   # Creating a resource group in Azure Using Terraform
   1. Open Visual Studio Code and create a folder.
   2. Create a file named 'main.tf'. Add the following codes to the file:
