@@ -1,10 +1,11 @@
 # Practical 1 
 # Aim
-Version Controlling with Git in Azure Repos
-<br> [Reference](https://github.com/MicrosoftLearning/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/blob/master/Instructions/Labs/AZ400_M04_Version_Controlling_with_Git_in_Azure_Repos.md)
+Create your own organisation under that organisation create project 
+ 
+ 
 # Objective
-  <ul><li>Work with branches in Azure Repos
-  <li>Work with repositories in Azure Repos 
+  <ul><li>Create git 2 breanch feature and main
+  <li>Upload your  storage using terraform and on feature branch then merge code main 
   </ul>
   
 # Procedure
