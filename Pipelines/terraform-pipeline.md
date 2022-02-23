@@ -1,4 +1,5 @@
 # Pipelines using Terraforms
+  * The below pipelines are created using classic editor and as an empty job
   1. Pipeline for Creating an web app using Terraform
   2. Pipeline for creating a Resource Group Using Terraform
   3. Pipeline for creating a Storage Account Using Terraform
