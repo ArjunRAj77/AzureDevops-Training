@@ -3,7 +3,7 @@
 YAML is being used in easily create template for CI/CD integration.
 <br>These are the list of demo pipelines created using YAML templates and its steps :
 
-1. Pipeline with sample YAML template
+<br> 1. Pipeline with sample YAML template
 
 # 1. Pipeline with sample YAML template
 1. Select ``` New Pipeline``` from Pipelines section.
