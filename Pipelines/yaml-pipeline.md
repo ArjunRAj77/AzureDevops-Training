@@ -5,11 +5,17 @@ YAML is being used in easily create template for CI/CD integration.
 
 1. Pipeline with sample YAML template
 
-# Pipeline with sample YAML template
-1. Select ``` New Pipeline``` from Pipelines section
+# 1. Pipeline with sample YAML template
+1. Select ``` New Pipeline``` from Pipelines section.
 2. Select ``` Azure Repos Git ```  . 
+   ![1](https://user-images.githubusercontent.com/23217592/155377878-cf35219e-f652-4ea9-b2b2-ba63ef1428e1.jpg)
+
 3. Select a repository. 
-4. Select ```existing Azure Pipeline YAML file ``` and select the YAML file
+   ![2](https://user-images.githubusercontent.com/23217592/155377912-c285e2be-6d90-44aa-b142-4140d9a1790d.jpg)
+
+4. Select ```existing Azure Pipeline YAML file ``` and select the YAML file. 
+   ![3](https://user-images.githubusercontent.com/23217592/155377938-5049f54d-c855-489f-a26d-ef5e0230db61.jpg)
+
 5. Review and Run the Pipeline. The sample YAML file is :
 ```
 name: sample-project
@@ -24,4 +30,8 @@ jobs:
   steps: 
   - powershell: write-host "Job2 Running"
  ```
- 6. The pipeline is up and running and created two seperate jobs based on the above YAML template.   
+
+ 6. The pipeline is up and running. It created two seperate jobs based on the above YAML template.   
+    ![5](https://user-images.githubusercontent.com/23217592/155378038-1a0ce3c5-3623-404e-93f5-28ecebf9e33f.jpg)
+
+# 2.
