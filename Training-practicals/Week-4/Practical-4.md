@@ -1,6 +1,6 @@
 # Practical 1 
 # Aim
-Create build and releage cycle yaml base
+Create build and release cycle yaml base
  
  
   
