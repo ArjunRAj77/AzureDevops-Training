@@ -19,6 +19,10 @@ Use Dotnet sample code and create build using classic editor and yaml
 # 2. Creating build Using Classic Editor
   1. Open Classic Editor from Pipeline.
   2. Select .ASP.Net project template
-  3. ![image](https://user-images.githubusercontent.com/23217592/156425576-6a5b81e5-780f-4989-8b72-824e566f1563.png)
-  4. 
+  4. Select the solution path 
+     <br>![image](https://user-images.githubusercontent.com/23217592/156498065-47edb28e-e0f5-403a-b3e6-9ce68b10ad0c.png)
+  6. The pipeline is executed successfully
+      ![image](https://user-images.githubusercontent.com/23217592/156498107-290a647a-a150-4d0a-b3f1-276a8d38bd57.png)
+
+
 
