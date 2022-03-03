@@ -1,7 +1,6 @@
-# Practical 1 
+# Practical 2 
 # Aim
 Create Build and deploy application on web app
- 
  
   
 # Procedure
