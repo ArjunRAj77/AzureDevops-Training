@@ -5,15 +5,15 @@ Use sonar cloud and complete code coverage of sample dot net code
 # Procedure
  1. Create a new organization
  2. Go to organization setting and to policies
- 3. enable public project
- 4. create a new public project.
- 5. go to sonarcloud.io and connect through azure devops and login with devops
- 6. provide org name and pat token for auth
- 7. go to project setting and select extensions and download sonarqube in extensions
- 8. create a service connection for sonarqube with the key provided.
- 9. select the free tier and select the public project
- 10. select ASP project and obtain credentials
- 11. upload sample code for ASP.net and create a yaml for pipeline
+ 3. Make the project public by 'Enable public project'
+ 4. Create a new public project.
+ 5. Go to sonarcloud.io and connect through azure devops and login with devops
+ 6. Provide org name and pat token for auth
+ 7. Go to project setting and select extensions and download sonarqube in extensions
+ 8. Create a service connection for sonarqube with the key provided.
+ 9. Select the free tier and select the public project
+ 10. Select ASP project and obtain credentials
+ 11. Upload sample code for ASP.net and create a yaml for pipeline
  
  ```
  trigger:
@@ -69,5 +69,9 @@ steps:
       <br>3. Then click on view yaml
       <br>4. Copy from task and update the same in above yaml
       <br>5. Run pipeline using the yaml
+      ![image](https://user-images.githubusercontent.com/23217592/156505817-c98898c4-d941-4e72-920d-a0b8db10fa3c.png)
+      ![image](https://user-images.githubusercontent.com/23217592/156505965-1c9f522b-8c12-4f33-86ea-fce0ed496769.png)
+
+
  
 
