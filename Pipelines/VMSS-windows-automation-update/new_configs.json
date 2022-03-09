@@ -1,0 +1,40 @@
+[{ 
+
+    "ResourceGroupName" : "rg-wbadevsecops-training",
+    
+    "SubscriptionID":"143e771e-4a87-4995-9ee6-605c8aa2c7be",
+
+    "GalleryName" : "windowsgallery",
+
+    "Location" : "East US 2",
+
+    "ImageDefinitionName" : "sample-testing-vmdef5",
+
+    "VMname" : "sample-testing-vm5",
+
+    "OsState" : "Generalized",
+
+    "OsType" : "Windows",
+    
+    "VmGeneration" : "V2",
+
+    "Publisher" : "samplepublisher5",
+
+    "Offer" : "sampleoffer5",
+
+    "Sku" : "samplesku5",
+
+    "RegionName" : "East US 2",
+
+    "ReplicaCount" : "1",
+
+    "GalleryImageVersionName" : "10.5.1",
+
+    "PublishingProfileEndOfLifeDate" : "03-10-2022",
+
+    "VMScaleSetName" : "vmssWin",
+
+    "Subscription" : "POC Lab"
+
+}
+]

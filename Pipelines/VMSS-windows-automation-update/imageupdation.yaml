@@ -1,0 +1,134 @@
+# Starter pipeline
+# END to END image updation of windows vmss pipeline
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+pool:
+  vmImage: windows-latest
+
+resources:
+  repositories:
+  - repository: Config
+    type: git
+    name: Pipeline_infrastructure/VMSS_Image_Update
+
+stages:
+- stage: ImageUpdate
+  displayName: "VMSS Image Update"
+  jobs:
+  - job: VMSSupdate
+    steps:
+     - script: |
+        echo "Current working directory: `pwd`"
+       displayName: 'Display build directory'  
+     - checkout: git://Pipeline_infrastructure/VMSS_Image_Update@main
+       displayName: 'Checkout Config'
+     - task: CopyFiles@2
+       inputs:
+        Contents: '*new_configs.json'
+        targetFolder: '$(Build.ArtifactStagingDirectory)/Config'    
+
+     - task: AzurePowerShell@5
+       inputs:
+        azureSubscription: 'POC Lab'
+        ScriptType: 'InlineScript'
+        Inline: |
+         Write-Host "Running first task : Getting data from JSON file"
+         $Config = Get-Content $(Build.ArtifactStagingDirectory)/Config/new_configs.json | ConvertFrom-Json
+         Write-Host " JSON file Content : "
+         Write-Host $Config[0].ResourceGroupName
+         Write-Host $Config[0].SubscriptionID
+         Write-Host $Config[0].GalleryName
+         Write-Host $Config[0].Location
+         Write-Host $Config[0].ImageDefinitionName
+         Write-Host $Config[0].VMname
+         Write-Host $Config[0].OsState
+         Write-Host $Config[0].OsType
+         Write-Host $Config[0].VmGeneration
+         Write-Host $Config[0].Publisher
+         Write-Host $Config[0].Offer
+         Write-Host $Config[0].Sku
+         Write-Host $Config[0].RegionName
+         Write-Host $Config[0].ReplicaCount
+         Write-Host $Config[0].GalleryImageVersionName
+         Write-Host $Config[0].PublishingProfileEndOfLifeDate
+         Write-Host $Config[0].VMScaleSetName
+         Write-Host $Config[0].Subscription
+        azurePowerShellVersion: 'LatestVersion'
+    
+     - task: AzurePowerShell@5
+       inputs:
+        azureSubscription: 'POC Lab'
+        ScriptType: 'InlineScript'
+        Inline: |
+         Write-Host "Running second task : Getting data from azcompute gallery"
+         $Config = Get-Content $(Build.ArtifactStagingDirectory)/Config/new_configs.json | ConvertFrom-Json
+         Get-AzGallery  -ResourceGroupName $Config[0].ResourceGroupName -GalleryName $Config[0].GalleryName
+        azurePowerShellVersion: 'LatestVersion'  
+    
+     - task: AzurePowerShell@5
+       inputs:
+        azureSubscription: 'POC Lab'
+        ScriptType: 'InlineScript'
+        Inline: |
+         Write-Host "Running third task : creating a gallery image"
+         $Config = Get-Content $(Build.ArtifactStagingDirectory)/Config/new_configs.json | ConvertFrom-Json
+         $IsAcceleratedNetworkSupported = @{Name='IsAcceleratedNetworkSupported';Value='True'}
+         $features = @($IsAcceleratedNetworkSupported)
+         Write-Host $features
+         Write-Host $Config[0].Sku
+         Write-Host "Generalizing the VM"
+         Set-AzVm -ResourceGroupName $Config[0].ResourceGroupName -Name $Config[0].VMname -Generalized
+         Write-Host "Succedded Generalizing the VM"
+         $galleryImage = New-AzGalleryImageDefinition `
+         -GalleryName $Config[0].GalleryName `
+         -ResourceGroupName $Config[0].ResourceGroupName `
+         -Location $Config[0].Location `
+         -Name $Config[0].ImageDefinitionName `
+         -OsState $Config[0].OsState `
+         -HyperVGeneration $Config[0].VmGeneration `
+         -OsType $Config[0].OsType `
+         -Publisher $Config[0].Publisher `
+         -Offer $Config[0].Offer `
+         -Sku $Config[0].Sku `
+         -Feature $features
+        azurePowerShellVersion: 'LatestVersion' 
+     
+     - task: AzurePowerShell@5
+       inputs:
+        azureSubscription: 'POC Lab'
+        ScriptType: 'InlineScript'
+        Inline: |
+         Write-Host "Running fourth task : creating new image gallery version"
+         $Config = Get-Content $(Build.ArtifactStagingDirectory)/Config/new_configs.json | ConvertFrom-Json
+         $sourceVM = Get-AzVM `
+         -Name $Config[0].VMname `
+         -ResourceGroupName $Config[0].ResourceGroupName 
+         Write-Host "Got the Source VM "
+         New-AzGalleryImageVersion `
+          -GalleryImageDefinitionName $Config[0].ImageDefinitionName `
+          -GalleryImageVersionName $Config[0].GalleryImageVersionName `
+          -GalleryName $Config[0].GalleryName `
+          -ResourceGroupName $Config[0].ResourceGroupName `
+          -Location $Config[0].Location `
+          -Source $sourceVM.Id.ToString()                  
+        azurePowerShellVersion: 'LatestVersion'      
+
+
+     - task: AzurePowerShell@5
+       inputs:
+        azureSubscription: 'POC Lab'
+        ScriptType: 'InlineScript'
+        Inline: |
+         Write-Host "Running fifth task : Updating image version of the VMSS"
+         $Config = Get-Content $(Build.ArtifactStagingDirectory)/Config/new_configs.json | ConvertFrom-Json
+         $ImgId="/subscriptions/"+$Config[0].SubscriptionID+"/resourceGroups/"+$Config[0].ResourceGroupName+"/providers/Microsoft.Compute/galleries/"+$Config[0].GalleryName+"/images/"+$Config[0].ImageDefinitionName+"/versions/"+$Config[0].GalleryImageVersionName
+         Write-Host "Updating image version of the VMSS"
+         Update-AzVmss `
+          -ResourceGroupName $Config[0].ResourceGroupName `
+          -VMScaleSetName $Config[0].VMScaleSetName `
+          -ImageReferenceId $ImgId
+        azurePowerShellVersion: 'LatestVersion'
