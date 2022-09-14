@@ -8,8 +8,8 @@ This mainly focus on learning through 3 different exam stages:
 The necessary learning materials for the above mentioned courses and practical sections  with demo steps are added to this Repo.
 
 The links for the walkthrough are:
-https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/
-https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/
+- https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/
+- https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/
 
 This Project also focus on learning the below concepts:
   1. SonarQube
